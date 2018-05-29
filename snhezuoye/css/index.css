@@ -1,0 +1,109 @@
+/* 
+* @Author: admin
+* @Date:   2018-05-21 09:59:42
+* @Last Modified by:   admin
+* @Last Modified time: 2018-05-25 10:46:24
+*/
+@charset "utf-8";
+header{ background-color:#F4F4F4; width: 100%; height: 39px; border-bottom: 1px solid #EBEBEB; }
+header li{ float: left; }
+.hd_di{ line-height: 39px; }
+.hd_u1 li{ font-size: 12px !important; padding-right: 26px; }
+.hd_u1 li:nth-child(2){ padding-right: 0; }
+.hd_l{ float: right; }
+.hd_u2 li{ padding-right: 0; }
+.hd_u2 li span{ padding: 0 10px; }
+.head{ width: 100%; height: 100px; }
+.search input{ width: 340px; height: 38px; border: 1px solid #F3F3F3; border-radius: 3px; font-size: 14px; color: #666666; }
+.search button{ width: 68px; height: 40px; border: 1px solid #EAEAEA; background-color: #F3F3F3; border-radius: 3px; margin-left: -6px; margin-top: -2px; font-size: 14px !important; color: #666666; }
+.search{ margin-left: 50%; margin-top:  52px; }
+nav{ width: 100%; height: 50px; background-color: #65504F; }
+.nav_u{ line-height: 50px; }
+.nav_u li a:hover { border-bottom: 6px solid pink; margin-top: -6px; }
+.nav_u li a{ float: left; font-size: 16px; color: white; width: 84px; height: 50px; text-align: center; }
+.nav_u li a:nth-child(1){ margin-left: 30px; }
+.bc{ margin-top: 9px; }
+.one{ display: flex; }
+.one_l{ margin-left: 0; margin-top: 16px; }
+.one_l ul{ width: 660px; height: 370px; }
+.one_r{ margin-top:16px; }
+.btr{ width: 321px; height: 40px; background-color: #65504F; position: relative; }
+.btp{ width:101px; height: 36px; text-align: center; line-height: 36px; background-color: #F2F2F2; position: absolute; top: 2px; left: 2px; font-size: 16px; color: #65504F; }
+.or_u1{ margin-top: 19px; margin-left: 17px; }
+.or_u1 li{ line-height: 26px; font-size: 14px; }
+.or_a{ font-size: 14px; color: #F27A02; }
+.or_u1 li p{ font-size: 12px; color: #999999; }
+.or_u1 li p span{ color: #F27A02; }
+.two{ display: flex; margin-top: 20px; }
+.tw_l{ margin-left: 0; position: relative; }
+.btl{ width: 660px; height: 40px; background-color: #65504F; position: relative; margin-left: 0; }
+.tl{ width: 240px; margin-left: 0; margin-top: 19px; }
+.tl h5{ text-align: center; font-size: 14px; color: #F27A02; }
+.tl img{ margin-top: 20px; }
+.tl p{ font-size: 12px; margin-top: 10px; line-height: 20px; }
+.tl p span{ color: #F27A02; }
+.tr ul{ position: absolute; top: 60px; left: 280px; line-height: 30px; font-size: 14px; width: 380px; }
+.tr ul li span{ position: absolute; right:11px; }
+.ia{ margin-top: 20px; }
+.tw_u{ width: 318px; height: 395px; border: 1px solid #65504F; }
+.tw_u li{ margin-left: 10px; line-height: 30px; font-size: 14px; }
+.tw_u li:nth-child(1){ margin-top: 19px; }
+.tw_u li span{ display: inline-block; width: 16px; height: 16px; font-size: 10px; text-align: center; line-height: 16px; }
+.cheng{ background-color: #F27A02; color: white; }
+.three{ margin-top: 19px; display: flex; }
+.th_l{ margin-left: 0; position: relative; }
+.btl ul{ width: 100%; position: absolute; top: 2px; left: 2px; }
+.btl li{ width: 101px; height: 36px; background-color: #F2F2F2; float: left; border-right: 2px solid #65504F; line-height: 36px; text-align: center; font-size: 14px; color: #65504F; }
+.btl li:active{ background-color: #65504F; color: white; }
+.btl li:nth-child(4){ border-right: none; }
+.tl_l ul{ width: 380px; }
+.tl_l ul li { float: left; position: relative; }
+.tl_l ul li:nth-child(even){ margin-left: 19px; }
+.tl_l ul li:nth-child(n){ margin-top: 19px; }
+.tl_l ul li p{ width: 180px; height: 30px; background-color:rgba(0,0,0,.3); position: absolute; bottom: 0px; text-align: center; line-height: 30px; font-size: 14px; color: white; }
+.tl_r ul{ width: 250px; height: 260px; position: absolute; top:59px; left: 409px; }
+.tl_r ul li{ font-size: 14px !important; padding-right: 24px; padding-bottom: 17px; }
+.tl_r ul li:nth-child(3n){ padding-right: 0; }
+.tl_r ul li a{ color: black; }
+.tl_r ul li:hover a{ color: #F27A02; }
+.tl_r ul li span{ font-size: 20px; }
+.kk{ border: 1px solid #65504F; width: 318px; height: 278px; margin-left: 1px; }
+.kk a,.kkk a{ color: black; }
+.th_r ul{ margin-top: 19px; margin-left: 31px; }
+.th_r li{ line-height: 28px; }
+
+.th_r a{ color: black; font-size: 14px; }
+.four{ display: flex; position: relative; margin-top: 19px; }
+.fo_l{ margin-left: 0; }
+.fo_l_l{ margin-top: 19px; }
+.fo_l_r{ position: absolute; top: 62px; left: 410px; }
+.fo_l_r li{ position: relative; }
+.fo_l_r li p{ width: 247px; height: 30px; background-color: rgba(0,0,0,.3); position: absolute; bottom: 0; color: white; font-size: 16px; line-height: 30px; text-align: center; }
+.fo_r li{ margin-top: 10px; }
+.fo_r li:nth-child(1){ margin-top: 0; }
+.five{ display: flex; margin-top: 19px; }
+.fi_l{ margin-left: 0; }
+.fi_l_ul{ width: 660px; margin-top: 20px; }
+.fi_l_ul li{ float: left; line-height: 30px; font-size: 14px; width: 330px; }
+.fi_l_ul li span{ width: 10px; height: 10px; display: inline-block; background-color: #65504F; margin-right: 10px; }
+.fi_r ul{ margin-top: 19px; margin-left: 31px; }
+.fi_r ul li{ font-size: 14px; line-height: 30px; }
+.kkk{ border: 1px solid #65504F; width: 318px; height: 247px; margin-left: 1px; }
+.jk{ margin-top: 19px; }
+.yq{ margin-top: 20px; position: relative; }
+.btt{ height: 40px; background-color: #65504F; position: relative; margin-left: 0; }
+.footer{ width: 100%; height: 40px; background-color: #65504F; margin-top: 19px; }
+.footer p{ font-size: 14px; color: white; text-align: center; line-height: 40px; }
+.foot{ width: 100%; height: 228px; background-color: #F2F2F2; }
+.ewm{ width: 610px; height: 227px; position: relative; }
+.ewm img{ margin-top: 35px; margin-left: 54px; }
+.ewm ul{ position: absolute; top: 36px; left: 272px; }
+.ewm ul li{ font-size: 12px; line-height: 32px; }
+#demo { background: #FFF; overflow:hidden; width: 879px; margin-top: 19px; }
+#demo img { margin-right: 32px; }
+#indemo { float: left; width: 800%; }
+#demo1 { float: left; }
+#demol a{ position: relative; }
+#demo2 { float: left; }
+.le{ position: absolute; top: 103px; right: -14px; }
+.ri{ position: absolute; top: 103px; left: 14px; }
