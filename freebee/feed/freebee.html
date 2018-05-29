@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Freebee</title>
+	 <meta id="viewport" name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="css/freebee.css">
+	<link rel="stylesheet" type="text/css" href="font/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="css/gg.css">
+	  <script>
+    window.onload = window.onresize = function(){		 
+        var view_width = document.getElementsByTagName('html')[0].getBoundingClientRect().width;
+		//找到标签名为html的第一个
+        var _html = document.getElementsByTagName('html')[0];
+		//如果屏幕宽度大于640 
+		//就用 640/16=40
+		//小于640的时候 不确定 也是尺寸/40
+        view_width>640?_html.style.fontSize = 640 / 16 + 'px':_html.style.fontSize = view_width / 16 + 'px';
+		//最大网页尺寸640 
+		//最大字体（根字体大小） 40
+    }
+</script>
+</head>
+<body>
+	<header>
+			<p class="iconfont back fl">&#xe654;</p>
+			<h5 class="jess">@JessA69</h5>
+	</header>
+	<div class="portrait">
+		<div class="blue">
+			<img src="img/dahai.png" alt="">
+		</div>
+		<div id="box">
+			<ul id="imgs">
+				<li><img src="img/touxiang.png" alt="1"></li>
+				<li><img src="img/touxiang.png" alt="2"></li>
+			</ul>
+			<a href="###" class="a" id="prev">&lt;</a>
+			<a href="###" class="a" id="next">&gt;</a>
+	    </div>
+		<div class="wz">
+			<p class="la">Jesica&nbspALba</p>
+			<p class="iconfont lo1">&#xe62e;<a class="lo">Los&nbspAngeles,CA</a></p>
+			<p><em class="em"></em><em class="em"></em></p>
+		</div>
+            <div id="buttons">
+				<span>1</span>
+				<span>2</span>
+			</div>
+		<div class="follow">
+			<ul class="fll">
+				<li>
+					<p>Followers</p>
+					<p style="color: #79746E;">4017</p>
+				</li>
+				<li>
+					<p>Followers</p>
+					<p style="color: #79746E;">4017</p>
+				</li>
+				<li>
+					<p>Followers</p>
+					<p style="color: #79746E;">4017</p>
+				</li>
+				<li>
+					<p class="iconfont jia">&#xe613;<span class="hua">Follow</span></p>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+	<ul class="sky">
+		<li><img src="img/hua.png"></li>
+		<li><img src="img/che.png"></li>
+		<li><img src="img/shamo.png"></li>
+		<li><img src="img/hua.png"></li>
+		<li><img src="img/che.png"></li>
+		<li><img src="img/shamo.png"></li>
+	</ul>
+	<div class="footer">
+		<a class="iconfont">&#xe60f;</a>
+		<a class="iconfont">&#xe688;</a>
+		<a class="iconfont">&#xe67e;</a>
+		<a class="iconfont">&#xe606;</a>
+		<a class="iconfont">&#xe61a;</a>
+	</div>
+<script>
+	function $(id) {
+		return document.getElementById(id);
+	}
+	var index=0; // 正在显示的图片的序号(0开始)
+	var imgW=135; // 图片宽度
+	var box=$('box');
+	var imgs=$('imgs');
+	var buttons=$('buttons').getElementsByTagName('span');
+	imgs.style.left=-imgW*index+'px'; // 指定第index个图像显示出来
+	buttons[index].className='act'; // 指定第index个按钮为active状态（class="act"）
+	var btnLen=buttons.length; // 按钮数量/图片数量
+	var prev=$('prev');
+	var next=$('next');
+	var t=null;
+	for(var i=0;i<btnLen;i++) {
+		buttons[i].i=i; //每个按钮设置js属性，保存序号
+		buttons[i].onclick=function(){ // 设置每个按钮的点击事件
+			imgs.style.left=-imgW*this.i+'px';
+			// 设置轮播图向指定方向移动指定距离
+			// 距离计算：一幅图片宽度x按钮的序号
+			buttons[index].className=''; // 清除掉上一个act状态的按钮
+			index=this.i; // 正在显示的图片的序号设置为被点击的按钮的序号
+			this.className='act'; // 被点击的按钮设置为act状态
+		}
+	}
+	function move(dir) {
+		var oldIndex=index; // 保存上一个图片的序号
+		index=index+dir; // 变化图片的序号
+		// 过界处理
+		if(index<0){ // 如果小于最小序号
+			index=btnLen-1; // 设置为最大序号
+		}
+		if(index>btnLen-1){ // 如果大于最大序号
+			index=0; // 设置为最小序号
+		}
+		imgs.style.left=-imgW*index+'px'; // 指定第index个图像显示出来
+		buttons[oldIndex].className=''; // 清除掉上一个act状态的按钮
+		buttons[index].className='act'; // 指定第index个按钮为active状态（class="act"）
+	}
+	prev.onclick=function(){
+		move(-1);
+		// 此时 dir=-1
+		// index=index+dir
+		// 等同于
+		// index=index-1
+		// 等同于index--
+	}
+	next.onclick=function(){
+		move(1);
+		// 此时 dir=1
+		// index=index+dir
+		// 等同于
+		// index=index+1
+		// 等同于index++
+	}
+	box.onmouseover=function(){
+		clearInterval(t);
+	}
+	box.onmouseout=function(){
+		t=setInterval(next.onclick,1000);
+	}
+	box.onmouseout();
+	</script>
+</body>
+</html>

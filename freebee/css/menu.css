@@ -1,0 +1,151 @@
+@charset "utf-8";
+
+body{
+	background-color: #685F55;
+}
+.box{
+	width: 12.3rem;
+}
+.hd{
+	padding:1.65rem 0.5rem 0px 0.5rem;
+}
+.header{
+	width:11.35rem;
+	height: 1.45rem;
+	border:1px solid #595149;
+	background-color: #5E554D;
+	border-radius: 20px;
+	line-height: 1.25rem
+}
+.header i{
+	font-size: 0.625rem;
+	color:#A49F99;
+	padding-left: 0.5rem;
+	padding-right: 0.375rem;
+}
+.header input{
+	font-size: 0.55rem;
+	color:#A49F99;
+}
+.bananer{
+	text-align: center;
+	padding-top: 0.75rem;
+	height: 8.8rem;
+}
+.bananer .text{
+	padding-top: 0.7rem;
+}
+.bananer .text h5{
+	font-size: 0.6rem;
+	color:#fff;
+	font-weight: normal;
+}
+.bananer .text p{
+	color:#A49F99;
+	font-size: 0.6rem;
+	line-height: 1rem;
+}
+.bananer .text p i{
+	font-size: 0.45rem;
+	color:#85D2C5;
+	padding-right: 0.25rem;
+}
+.bananer .bt span{
+	width:0.25rem;
+	height: 0.25rem;
+	border-radius:50%;
+	background-color: #fff;
+	display: inline-block;
+	margin-right: 0.25rem;
+}
+#boxx {
+	text-align: center;
+	width: 5.35rem;
+	height: 5.35rem;
+	position: relative;
+	overflow: hidden;
+	left:3.55rem;
+}
+#imgs {
+	position: absolute;
+	top: 0;
+	width: 10.7rem;
+	height: 5.35rem;
+	transition: .5s linear;
+}
+#imgs li {
+	float: left;
+	width: 5.35rem;
+	height: 5.35rem;
+}
+#imgs li img{
+	width: 5.35rem;
+	height: 5.35rem;
+}
+#buttons {
+	position: absolute;
+	top: 12.5rem;
+	left: -1.8rem;
+	width: 100%;
+	text-align: center;
+	font-size: 0;
+}
+#buttons span {
+	display: inline-block;
+	width: 0.25rem;
+	height: 0.25rem;
+	border-radius: 50%;
+	margin: 0 0.125rem;
+	cursor: pointer;
+	background-color: #ccc;
+}
+#buttons span.act,#buttons span:hover {
+	background:#fff;
+}
+.nav{
+	padding-top: 1.2rem;
+}
+.nav li{
+	height: 2.25rem;
+	line-height: 2.25rem;
+}
+.nav .feed{
+	background-color: #6A6157;
+}
+.nav li a{
+	font-size: 0.6rem;
+	color:#fff;
+	padding-left: 1.25rem;
+}
+.nav li span{
+	width:1rem;
+	height: 1rem;
+	background-color: #fff;
+	color:#A49F99;
+	text-align: center;
+	line-height: 1rem;
+	border-radius: 3px;
+	margin:0.65rem 0.85rem 0px 0px;
+}
+.nav li a i{
+	font-size: 1.05rem;
+	margin-right: 1.25rem;
+}
+.nav li a .fd{
+	color:#F17E56;
+}
+.nav li a .ep{
+	color:#85D2C5;
+}
+.nav li a .fs{
+	color:#AD8FB7;
+}
+.nav li a .rd{
+	color:#FADB9B;
+}
+.nav li a .st{
+	color:#A8A39F;
+}
+.nav li:hover{
+	background-color: #6A6157;
+}

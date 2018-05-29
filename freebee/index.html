@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>login</title>
+	<meta id="viewport" name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="css/gonggong.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="font/iconfont.css">
+    
+   <script>
+	    window.onload = window.onresize = function(){		 
+	        var view_width = document.getElementsByTagName('html')[0].getBoundingClientRect().width;
+			//找到标签名为html的第一个
+	        var _html = document.getElementsByTagName('html')[0];
+			//如果屏幕宽度大于640 
+			//就用 640/16=40
+			//小于640的时候 不确定 也是尺寸/40
+	        view_width>640?_html.style.fontSize = 640 / 16 + 'px':_html.style.fontSize = view_width / 16 + 'px';
+			//最大网页尺寸640 
+			//最大字体（根字体大小） 40
+	    }
+</script>
+</head>
+<body>
+
+	<div class="logo">
+		<img src="img/logo.png" alt="">
+	</div>
+	<div class="center">
+		<div class="content">
+			<div class="mail">
+				<i class="iconfont">&#xe63c;</i>
+				<input type="text" placeholder="E-mail address">
+				<span></span>
+			</div>
+			<div class="mail mima">
+				<i class="iconfont pass">&#xe61b;</i>
+				<input type="text" placeholder="••••••••">
+				<span></span>
+			</div>
+		</div>
+		<div class="login">
+			 <a href="cehua/cehua.html"><input type="submit" value="Login" class="submit">
+			 </a>
+			 <p>Forgot password?</p>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="footer_af">
+			<div class="footer_bt">
+				<p class="buttom"><span>f</span>Login with Facebook</p>
+				<p class="sign">Sign Up for Freebee</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

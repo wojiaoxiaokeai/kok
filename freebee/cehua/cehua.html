@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>profile</title>
+	<meta id="viewport" name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="css/gonggong.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/menu.css">
+	<link rel="stylesheet" type="text/css" href="font/iconfont.css">
+	<script>
+	    window.onload = window.onresize = function(){		 
+	        var view_width = document.getElementsByTagName('html')[0].getBoundingClientRect().width;
+			//找到标签名为html的第一个
+	        var _html = document.getElementsByTagName('html')[0];
+			//如果屏幕宽度大于640 
+			//就用 640/16=40
+			//小于640的时候 不确定 也是尺寸/40
+	        view_width>640?_html.style.fontSize = 640 / 16 + 'px':_html.style.fontSize = view_width / 16 + 'px';
+			//最大网页尺寸640 
+			//最大字体（根字体大小） 40
+	    }
+	</script>
+	<link rel="stylesheet" type="text/css" href="dist/css/mui.css">
+	<script src="dist/js/mui.js"></script>
+	<script src="dist/js/mui.min.js"></script>
+
+</head>
+<body>
+	<!-- 侧滑导航根容器 -->
+<div class="mui-off-canvas-wrap mui-draggable" style="background-color: #685F55;">
+  <!-- 主页面容器 -->
+  <div class="mui-inner-wrap">
+     <!-- 菜单容器 -->
+    <aside class="mui-off-canvas-left" >
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+        	<div class="ys">
+	         	<div class="box">
+					<div class="hd">
+						<div class="header">
+							<i class="iconfont">&#xe633;</i>
+							<input type="text" placeholder="Serach">
+						</div>
+					</div>
+					<div class="bananer">
+						<div id="boxx">
+							<ul id="imgs">
+								<li><img src="img/bananer.png" alt=""></li>
+								<li><img src="img/bananer.png" alt=""></li>
+							</ul>
+							
+						</div>
+						<div class="text">
+							<h5>Carmen Electra</h5>
+							<p><i class="iconfont">&#xe62e;</i>Los Angeles, CA</p>
+						</div>
+						<div id="buttons">
+								<span></span>
+								<span></span>
+							</div>
+					</div>
+					<ul class="nav">
+						<li class="feed"><a href=""><i class="iconfont fd">&#xe629;</i>Feed</a></li>
+						<li><a href=""><i class="iconfont ep">&#xe62f;</i>Explore</a><span class="fr">5</span></li>
+						<li><a href=""><i class="iconfont fs">&#xe612;</i>Friends</a></li>
+						<li><a href=""><i class="iconfont rd">&#xe614;</i>Rewards</a></li>
+						<li><a href=""><i class="iconfont st">&#xe616;</i>Settings</a></li>
+					</ul>
+				</div>
+			</div>
+			<script>
+				function $(id) {
+					return document.getElementById(id);
+				}
+				var index=0; // 正在显示的图片的序号(0开始)
+				var imgW=125; // 图片宽度
+				var box=$('boxx');
+				var imgs=$('imgs');
+				var buttons=$('buttons').getElementsByTagName('span');
+				imgs.style.left=-imgW*index+'px'; // 指定第index个图像显示出来
+				buttons[index].className='act'; // 指定第index个按钮为active状态（class="act"）
+				var btnLen=buttons.length; // 按钮数量/图片数量
+				var prev=$('prev');
+				var next=$('next');
+				var t=null;
+				for(var i=0;i<btnLen;i++) {
+					buttons[i].i=i; //每个按钮设置js属性，保存序号
+					buttons[i].onclick=function(){ // 设置每个按钮的点击事件
+						imgs.style.left=-imgW*this.i+'px';
+						// 设置轮播图向指定方向移动指定距离
+						// 距离计算：一幅图片宽度x按钮的序号
+						buttons[index].className=''; // 清除掉上一个act状态的按钮
+						index=this.i; // 正在显示的图片的序号设置为被点击的按钮的序号
+						this.className='act'; // 被点击的按钮设置为act状态
+					}
+				}
+				function move(dir) {
+					var oldIndex=index; // 保存上一个图片的序号
+					index=index+dir; // 变化图片的序号
+					// 过界处理
+					if(index<0){ // 如果小于最小序号
+						index=btnLen-1; // 设置为最大序号
+					}
+					if(index>btnLen-1){ // 如果大于最大序号
+						index=0; // 设置为最小序号
+					}
+					imgs.style.left=-imgW*index+'px'; // 指定第index个图像显示出来
+					buttons[oldIndex].className=''; // 清除掉上一个act状态的按钮
+					buttons[index].className='act'; // 指定第index个按钮为active状态（class="act"）
+				}
+				buttons.onclick=function(){
+					move(-1);
+					// 此时 dir=-1
+					// index=index+dir
+					// 等同于
+					// index=index-1
+					// 等同于index--
+				}
+				buttons.onclick=function(){
+					move(1);
+					// 此时 dir=1
+					// index=index+dir
+					// 等同于
+					// index=index+1
+					// 等同于index++
+				}
+				box.onmouseover=function(){
+					clearInterval(t);
+				}
+				box.onmouseout=function(){
+					t=setInterval(buttons.onclick,1000);
+				}
+				box.onmouseout();
+			</script>
+        </div>
+      </div>
+    </aside>
+    <!-- 主页面标题 -->
+    <!-- <header class="mui-bar mui-bar-nav">
+      <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+      <h1 class="mui-title">标题</h1>
+    </header> -->
+    <div class="bj">
+	    <header class="mui-bar mui-bar-nav bjj">
+			<div class="head_lt fl">
+				<i class="iconfont">&#xe611;</i>
+				<span>5</span>
+			</div>
+			<div class="logo">
+				<img src="img/Freebee.png">
+			</div>
+		</header>
+	    <!-- 主页面内容容器 -->
+	    <div class="mui-content mui-scroll-wrapper">
+	      <div class="mui-scroll">
+	       		<div class="banner">
+			<div class="ban_tu">
+				<a href="../feed/freebee.html"><img src="img/banner.png"></a>
+			</div>
+			<div class="ban_bm">
+				<div class="ban_bm_lt fl">
+					<div class="tuoxiang fl">
+						<img src="img/touxiang.png">
+					</div>
+					<div class="name">
+						<h4>Jesica Alba</h4>
+						<i class="iconfont">&#xe62e;</i><span>Los Angeles, CA</span>
+					</div>
+				</div>
+				<div class="ban_bm_rt fr">
+					<i class="iconfont">&#xe688;</i>
+					<span>2m</span>
+				</div>
+			</div>
+		</div>
+		<div class="banner2">
+			<div class="ban2_lt fl">
+				<div class="ban2_lt_tu">
+					<img src="img/banner2.png">
+					<div class="touxiang2">
+						<img src="img/touxiang2.png" class="fl">
+						<div class="name">
+							<h4>Shawn Corey Carter</h4>
+							<i class="iconfont">&#xe62e;</i><span>Brooklyn, NY</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<ul class="ban2_rt fr">
+				<li><i class="iconfont hong">&#xe60b;</i></li>
+				<li class="bk"><i class="iconfont qing">&#xe61d;</i></li>
+				<li><i class="iconfont huang">&#xe615;</i></li>
+				<li style="margin-top:0.625rem;"><i class="iconfont hui">&#xe60e;</i></li>
+			</ul>
+		</div>
+		<div class="footer_ban">
+			<img src="img/foote_banner.png">
+		</div>
+		<footer>
+			<ul>
+				<li class="dy"><i class="iconfont">&#xe60f;</i></li>
+				<li><i class="iconfont">&#xe688;</i></li>
+				<li><i class="iconfont">&#xe67e;</i></li>
+				<li><i class="iconfont">&#xe606;</i></li>
+				<li><i class="iconfont">&#xe61a;</i></li>
+			</ul>
+		</footer>
+      </div>
+    </div>  
+  </div>
+</div>
+</body>
+</html>

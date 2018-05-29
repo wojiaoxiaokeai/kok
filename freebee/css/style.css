@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+body{
+	background-color: #85D2C5;
+}
+.logo{
+	text-align: center;
+	padding-top: 4.85rem;
+}
+.logo img{
+	width:6.3rem;
+	height: 2.275rem;
+}
+.center{
+	height: 16.25rem;
+}
+.content{
+	padding:2.8rem 0px 0px 2.5rem;
+}
+.content .mail{
+	font-size: 0.6rem;
+	color:#507E76;
+}
+.content .mail input{
+	font-size: 0.6rem;
+	color:#507E76;
+}
+.content .mail i{
+	font-size: 0.75rem;
+	color:#fff;
+	padding-right: 1rem;
+}
+.content .mail span{
+	width: 11.1rem;
+	height: 0.05rem;
+	background-color: #83D0C3;
+	display: inline-block;
+}
+.content .mima{
+	padding-top: 1.15rem;
+}
+.content .mail .pass{
+	font-size: 0.9rem;
+}
+.login{
+	text-align: center;
+	padding-top: 1.5rem;
+}
+.login .submit{
+	color:#fff;
+	font-size: 0.75rem;
+	width:8.4rem;
+	height: 1.8rem;
+	background-color: #705D76;
+	border-radius: 5px;
+	box-shadow: 0px 0.125rem #5C4D61;
+}
+.login p{
+	font-size: 0.65rem;
+	color:#fff;
+	padding-top: 0.9rem;
+}
+.footer{
+	height: 5rem;
+	background-color: #80CABD;
+	text-align: center;
+}
+.footer_af{
+	display: inline-block;
+}
+.footer_bt{
+	text-align: center;
+	padding-top: 1rem;
+}
+.footer .buttom{
+	width: 8.4rem;
+	height: 1.75rem;
+	border:2px solid #fff;
+	border-radius: 5px;
+	font-size: 0.65rem;
+	line-height: 1.75rem;
+	color:#fff;
+}
+.footer .buttom span{
+	font-size: 0.75rem;
+	font-weight: bold;
+	padding-right: 0.875rem;
+}
+.sign{
+	margin: 0.75rem 0px 0px 1rem;
+	width:6.4rem;
+	font-size: 0.65rem;
+	color:#fff;
+	border-bottom: 2px solid #fff;
+}
