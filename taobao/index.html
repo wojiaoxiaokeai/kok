@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝</title>
+	<link rel="stylesheet" type="text/css" href="taobao.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+             $(function() {
+               var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+               var len = $("#focus ul li").length; //获取焦点图个数
+               var index = 0;
+               var picTimer;
+  
+               //以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
+               var btn = "<div class='btnBg'></div><div class='btn'>";
+               for(var i=0; i < len; i++) {
+                   btn += "<span></span>";
+               }
+               btn += "</div><div class='preNext pre'></div><div class='preNext next'></div>";
+               $("#focus").append(btn);
+               $("#focus .btnBg").css("opacity",0.5);
+
+               //为小按钮添加鼠标滑入事件，以显示相应的内容
+               $("#focus .btn span").css("opacity",0.4).mouseover(function() {
+                   index = $("#focus .btn span").index(this);
+                   showPics(index);
+               }).eq(0).trigger("mouseover");
+
+               //上一页、下一页按钮透明度处理
+               $("#focus .preNext").css("opacity",0.2).hover(function() {
+                   $(this).stop(true,false).animate({"opacity":"0.5"},300);
+               },function() {
+                   $(this).stop(true,false).animate({"opacity":"0.2"},300);
+               });
+
+               //上一页按钮
+               $("#focus .pre").click(function() {
+                   index -= 1;
+                   if(index == -1) {index = len - 1;}
+                   showPics(index);
+               });
+
+               //下一页按钮
+               $("#focus .next").click(function() {
+                   index += 1;
+                   if(index == len) {index = 0;}
+                   showPics(index);
+               });
+
+               //图片为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+               $("#focus ul").css("width",sWidth * (len));
+  
+               //鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+               $("#focus").hover(function() {
+                   clearInterval(picTimer);
+               },function() {
+                   picTimer = setInterval(function() {
+                       showPics(index);
+                       index++;
+                       if(index == len) {index = 0;}
+                 　　  },4000); //此4000代表自动播放的间隔，单位：毫秒
+               }).trigger("mouseleave");
+  
+              //显示图片函数，根据接收的index值显示相应的内容
+               function showPics(index) { //普通切换
+                 var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+                 //使用animate()方法调整ul元素滚动到计算出的position
+                 $("#focus ul").stop(true,false).animate({"left":nowLeft},300); 
+                 //为当前的按钮切换到选中的效果
+                 $("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300)
+                 　.eq(index).stop(true,false).animate({"opacity":"1"},300); 
+               }
+             });
+</script>
+<script type="text/javascript">
+                 $(function() {
+                   var sWidth = $("#focus1").width(); //获取焦点图的宽度（显示面积）
+                   var len = $("#focus1 ul li").length; //获取焦点图个数
+                   var index = 0;
+                   var picTimer;
+  
+                   //以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
+                   var btn = "<div class='btnBg'></div><div class='btn'>";
+                   for(var i=0; i < len; i++) {
+                       btn += "<span></span>";
+                          }
+          btn += "</div><div class='preNext pre'></div><div class='preNext next'></div>";
+          $("#focus1").append(btn);
+          $("#focus1 .btnBg").css("opacity",0.5);
+
+          //为小按钮添加鼠标滑入事件，以显示相应的内容
+          $("#focus1 .btn span").css("opacity",0.4).mouseover(function() {
+              index = $("#focus1 .btn span").index(this);
+              showPics(index);
+          }).eq(0).trigger("mouseover");
+
+          //上一页、下一页按钮透明度处理
+          $("#focus1 .preNext").css("opacity",0.2).hover(function() {
+              $(this).stop(true,false).animate({"opacity":"0.5"},300);
+          },function() {
+              $(this).stop(true,false).animate({"opacity":"0.2"},300);
+          });
+
+          //上一页按钮
+          $("#focus1 .pre").click(function() {
+              index -= 1;
+              if(index == -1) {index = len - 1;}
+              showPics(index);
+          });
+
+          //下一页按钮
+          $("#focus1 .next").click(function() {
+              index += 1;
+              if(index == len) {index = 0;}
+              showPics(index);
+          });
+
+          //图片为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+          $("#focus1 ul").css("width",sWidth * (len));
+  
+          //鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+          $("#focus1").hover(function() {
+              clearInterval(picTimer);
+          },function() {
+              picTimer = setInterval(function() {
+                  showPics(index);
+                  index++;
+                  if(index == len) {index = 0;}
+            　　  },4000); //此4000代表自动播放的间隔，单位：毫秒
+          }).trigger("mouseleave");
+  
+          //显示图片函数，根据接收的index值显示相应的内容
+          function showPics(index) { //普通切换
+            var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+            //使用animate()方法调整ul元素滚动到计算出的position
+            $("#focus1 ul").stop(true,false).animate({"left":nowLeft},300); 
+            //为当前的按钮切换到选中的效果
+            $("#focus1 .btn span").stop(true,false).animate({"opacity":"0.4"},300)
+            　.eq(index).stop(true,false).animate({"opacity":"1"},300); 
+          }
+                             });
+</script>
+<style>
+#tabs1l {
+    float: left;
+    width: 272px;
+    height: 483px;
+    margin: 0 auto;
+    margin-top: 45px;
+    margin-left: 15px;
+  }
+   #tabs1l ul{
+    width: 300px;
+    height: 28px;
+   }
+  #tabs1l li {
+    font-family: '宋体';
+    font-size:12px;
+    color: #3B3B3B;
+    float: left;
+    border: 1px solid;
+    margin-right: -1px;
+    cursor: pointer;
+    width: 53px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+  }
+  #tabs1l li img {
+    width: 100%;
+    display: block;
+  }
+  #tabs1l .on1l {
+    border-color: #ccc;
+    position: relative;
+  }
+  #con1l {
+    width: 270px;
+    border: 1px solid #ccc;
+    margin-bottom: -1px;
+    height: 453px;
+  }
+  #con1l div {
+    display: none;
+  }
+  #con1l div img {
+    width: 100%;
+  }
+  #con1l .show {
+    display: block;
+  }
+  </style>
+
+</head>
+<body>
+<div class="tb_top">
+	<div class="tb_top2 gwidth">
+         <ul class="tb_topl">
+              <li class="dl">亲，请登录</li>
+              <li>免费注册</li>
+         </ul>
+         <ul class="tb_topr">
+               <li><p class="xlz"><a href="#">我的淘宝</a><span>&gt</span></p><p class="xiala"><a href="#">已买到的宝贝</a><a href="#">店铺动态</a><a href="#">好友动态</a></p></li>
+               <li><a href="#" style="background: url(gouwuche.png) no-repeat left center;padding-left: 18px;">购物车<strong class="z1">0</strong></a><span>&gt</span></li>
+               <li><p class="xlz3"><a href="#" style="background: url(shoucang.png) no-repeat left center;padding-left: 18px;">收藏夹</a><span>&gt</span></p><p class="xiala"><a href="#">收藏的宝贝</a><a href="#">收藏的店铺</a></p></li>
+               <li style="height: 192px;"><p class="xlz4"><a href="#">我要逛</a><span>&gt</span><strong class="z2">|</strong></p><p class="xiala2"><a href="#">逛上新</a><a href="#">逛优惠</a><a href="#">小分队</a><a href="#">用手机逛</a><a href="#">商品分类</a></p></li>
+               <li><p class="xlz"><a href="#">卖家中心</a><span>&gt</span></p><p class="xiala3"><a href="#">已买出的宝贝</a><a href="#">出售中的宝贝</a><a href="#">卖家服务市场</a><a href="#">卖家培训中心</a></p></li>
+               <li><a href="#">手机版</a></li>
+               <li><a href="#">联系客服</a></li>
+               <li><p class="xlz5"><a href="#" style="background: url(wangzhandaohang.png) no-repeat left center;padding-left: 18px;">网站导航</a><span>&gt</span></p></li>
+         </ul>    
+            <!--<div class="cd">
+                     <div class="xiala4">
+                        <p>主题市场</p>
+                        <ul class="wo">
+                                <li>爱美女人</li>
+                                <li>品质男人</li>
+                                <li>跳蚤街</li>
+                                <li>全球购</li>
+                                <li>品牌街</li>
+                                <li>生活服务</li>
+                                <li>我要结婚<img src="lv.gif"></li>
+                                <li>辣妈萌宝</li>
+                                <li>车生活</li>
+                                <li>淘创意</li>
+                                <li>爱美妆</li>
+                                <li>运动户外</li>
+                                <li>家用电器</li>
+                                <li>私人订制</li>
+                                <li>狠爱</li>
+                                <li>网络游戏</li>
+                                <li>品牌控</li>
+                        </ul>
+                     </div>
+                     <div class="xiala4">
+                        <p style="color: #CEDAB0;">特色购物</p>
+                        <ul class="wo">
+                                <li>爱美女人</li>
+                                <li>品质男人</li>
+                                <li>跳蚤街</li>
+                                <li>全球购</li>
+                                <li>品牌街</li>
+                                <li>生活服务</li>
+                                <li>我要结婚<img src="lv.gif"></li>
+                                <li>辣妈萌宝</li>
+                                <li>车生活</li>
+                                <li>淘创意</li>
+                                <li>爱美妆</li>
+                                <li>运动户外</li>
+                                <li>家用电器</li>
+                                <li>私人订制</li>
+                                <li>狠爱</li>
+                                <li>网络游戏</li>
+                                <li>品牌控</li>
+                        </ul>
+                     </div>
+                      <div class="xiala4">
+                        <p style="color: #DF61AB;">当前热点</p>
+                        <ul class="wo">
+                                <li>爱美女人</li>
+                                <li>品质男人</li>
+                                <li>跳蚤街<img src="lv.gif"></li>
+                                <li>全球购</li>
+                                <li>品牌街</li>
+                                <li>生活服务</li>
+                                <li>我要结婚<img src="lv.gif"></li>
+                                <li>辣妈萌宝</li>
+                                <li>车生活</li>
+                                <li>淘创意</li>
+                                <li>爱美妆</li>
+                                <li>运动户外</li>
+                                <li>家用电器</li>
+                                <li>私人订制</li>
+                                <li>狠爱</li>
+                                <li>网络游戏</li>
+                                <li>品牌控</li>
+                        </ul>
+                     </div>
+                      <div class="xiala4">
+                        <p style="color: #55A1E5;">更多精彩</p>
+                        <ul class="wo" style="border-right:none;">
+                                <li>爱美女人</li>
+                                <li>品质男人</li>
+                                <li>跳蚤街</li>
+                                <li>全球购</li>
+                                <li>品牌街</li>
+                                <li>生活服务</li>
+                                <li>我要结婚<img src="lv.gif"></li>
+                                <li>辣妈萌宝</li>
+                                <li>车生活</li>
+                                <li>淘创意</li>
+                                <li>爱美妆</li>
+                                <li>运动户外</li>
+                                <li>家用电器</li>
+                                <li>私人订制</li>
+                                <li>狠爱</li>
+                                <li>网络游戏</li>
+                                <li>品牌控</li>
+                        </ul>
+                     </div>
+            </div>-->
+        
+   </div>
+</div>
+<div class="header gwidth">
+   <div  class="header_left">
+        <img src="logo.png" alt="">
+   </div>
+   <div class="header_c">
+         <form class="text">
+            <input type="text" placeholder="搜“虾米音乐”试试，领8元音乐礼包">
+             <select>
+                <option>宝贝</option>
+                <option>店铺</option>
+             </select>
+ 
+            <img src="fangdajing.png" alt="" class="tu2">
+            <img src="yuyin.png" alt="" class="tu3">
+         </form>
+         <div class="tu4">
+             <img src="sousu.png" alt="">
+             <p>高级搜索</p>
+         </div>
+         <div class="gd">
+              <p>女士凉鞋雪纺衫新款连衣裙61节童装大码女装女士T恤运动套装男士T恤蚊帐儿童玩具孕妇装防晒衣</p>
+              <a>更多</a>
+         </div>
+   </div>
+
+      <a  id="login" href="#" style="float: right;display: inline-block;width: 116px;height: 115px;" class="wo"><img onclick=" hide()"src="dianji.png" alt="" id="dj"><img src="erweima.png" alt=""></a>
+   
+   <script>
+   var login=document.getElementById('login');
+   function hide() {
+      dj.style.display='none';
+   }
+   </script>
+</div>
+<div class="tsfw gwidth">
+    <div class="tsfw_l">
+       <p class="ts">淘宝特色服务</p>
+       <div class="tsfw_b">
+           <div class="ni">
+                 <p class="zt">主题市场</p>
+                 <ul class="ni_top">
+                       <li>爱美女人</li>
+                        <li>运动派<img src="red.gif" alt=""></li>
+                        <li>情侣</li>
+                        <li>品质男人</li>
+                        <li>孕婴童</li>
+                        <li>家居</li>
+                        <li>美容护肤<img src="red.gif" alt=""></li>
+                        <li>中老年</li>
+                        <li>美食</li>
+                        <li>美嫁新娘</li>
+                        <li>有车族</li>
+                        <li>装修<img src="red.gif" alt=""></li>
+                        <li>家庭净化</li>
+                        <li>游戏</li>
+                        <li>动漫</li>
+                        <li>爱好</li>
+                 </ul>
+           </div>
+            <div class="ni">
+                 <p class="zt1">特色购物</p>
+                 <ul class="ni_top">
+                       <li>爱美女人</li>
+                        <li>运动派<img src="red.gif" alt=""></li>
+                        <li>情侣</li>
+                        <li>品质男人</li>
+                        <li>孕婴童</li>
+                        <li>家居</li>
+                        <li>美容护肤<img src="red.gif" alt=""></li>
+                        <li>中老年</li>
+                        <li>美食</li>
+                        <li>美嫁新娘</li>
+                        <li>有车族</li>
+                        <li>装修<img src="red.gif" alt=""></li>
+                        <li>家庭净化</li>
+                        <li>游戏</li>
+                        <li>动漫</li>
+                        <li>爱好</li>
+                 </ul>
+           </div>
+            <div class="ni">
+                 <p class="zt2">优惠促销</p>
+                 <ul class="ni_top1">
+                       <li>爱美女人</li>
+                        <li>运动派<img src="red.gif" alt=""></li>
+                        <li>情侣</li>
+                        <li>品质男人</li>
+                        <li>孕婴童</li>
+                 </ul>
+           </div>
+           <div class="ni">
+                 <p class="zt3">工具</p>
+                 <ul class="ni_top2">
+                       <li>爱美女人</li>
+                        <li>运动派<img src="red.gif" alt=""></li>
+                        <li>情侣</li>
+                 </ul>
+           </div>
+       </div>
+    </div>
+    <div class="tsfw_r">
+         <div class="tsfw_rtop">
+              <ul class="ts_nav1">
+                   <li>天猫</li>
+                   <li>聚划算</li>
+                   <li>超市</li>
+              </ul>
+               <ul class="ts_nav2">
+                   <li>拍卖</li>
+                   <li>一淘网</li>
+                   <li>电器城</li>
+                   <li>Hitao妆扮</li>
+                   <li>旅行</li>
+                   <li>云手机</li>
+                   <li>特色中国</li>
+              </ul>
+              <p>消费者保障</p>
+
+         </div>
+         <div class="dakuai">
+             <div class="wrapper">
+              <div id="focus">
+                     <ul>
+                         <li><a href="" target="_blank"><img src="bananer1.png" alt="" /></a></li>
+                         <li><a href="" target="_blank"><img src="bananer1.png" alt="" /></a></li>
+                         <li><a href="" target="_blank"><img src="bananer1.png" alt="" /></a></li>
+                         <li><a href="" target="_blank"><img src="bananer1.png" alt="" /></a></li>
+                         <li><a href="" target="_blank"><img src="bananer1.png" alt="" /></a></li>
+                      </ul>
+              </div>
+             </div>
+                 <div class="ytu">
+                     <img src="zhengbao.png" alt="">
+                 </div>
+         </div>
+         <div class="dada">
+               <div class="wrapper1">
+                   <div id="focus1">
+                     <ul>
+                         <li><a href="" target="_blank"><img src="ysld.png" alt="" /></a></li>
+                         <li><a href="" target="_blank"><img src="ysld.png" alt="" /></a></li>
+                         <li><a href="" target="_blank"><img src="ysld.png" alt="" /></a></li>
+                         <li><a href="" target="_blank"><img src="ysld.png" alt="" /></a></li>
+                         <li><a href="" target="_blank"><img src="ysld.png" alt="" /></a></li>
+                      </ul>
+                    </div>
+               </div>
+                <div class="ytu2">
+                <img src="iphone5s.png" alt="">
+         </div>
+           
+
+         </div>
+         
+    </div>
+    <div id="tabs1l">
+        
+         <ul>
+            <li class="on1l">公告</li>
+            <li>规则</li>
+            <li>论坛</li>
+            <li>安全</li>
+            <li>公益</li>
+         </ul>
+          <div id="con1l">
+                <div class="show">
+                 <p class="zs"><span>最受赞赏公司阿里折桂</span>   新一代好友互动“来往”
+                 </p>
+                 <p class="sq">来往九大特色功能来袭   淘字号服务开放申请了！</p>
+
+                </div>
+                <div class="show" id="hi">
+                      <div class="show" id="weixin">
+                            <img src="weixin.png" alt="">
+                      </div>
+                      
+                      <div class="show" id="tao">
+                           <p class="nihao">Hi！&nbsp你好</p>
+                           <div class="show" id="jinbi">
+                                 <a style="background:url(jinpai.png) no-repeat left center;padding-left: 8px;">领淘金币抵钱</a>
+                                 <a>会员俱乐部</a>
+                           </div>
+                      </div>
+                      <div class="show" id="denglv">
+                            <a>登录</a>
+                            <a>注册</a>
+                            <a>免费开店</a>
+                      </div>
+                </div>
+                <div class="show" id="bianmin">
+                    <div class="show" id="bm_top">
+                           <p>便民服务</p>
+                           <ul class="show" id="huafei">
+                                <ol><img src="huafei.png" alt=""><a>话费</a></ol>
+                                <ol><img src="youxi.png" alt=""><a>游戏</a></ol>
+                                <ol><img src="lvxing.png" alt=""><a>旅行</a></ol>
+                                <ol><img src="baoxing.png" alt=""><a>保险</a></ol>
+                           </ul>
+
+                    </div>
+                    <div class="show" id="shouji_gudi">
+                          <div class="show" id="haoma">
+                                <img src="haoma.png" alt="">
+                          </div>
+                          <from class="show" id="shoujihao">
+                             <input type="text" placeholder="手机号，固定号">
+                             <select>
+                                   <option>50元</option>
+                                   <option>20元</option>
+                                   <option>100元</option>
+                                   <option>10元</option>
+                                   <option>300元</option>
+                             </select>
+ 
+                          </from>
+                          <p class="show" id="sj">售价¥<span>49-49.8</span></p>
+                          <div class="show" id="fudu">
+                                <p class="show" id="xs">立即充值</p>
+                                <p class="show" id="xs2">定期充值</p>
+                                <p class="show" id="xs3">哇！绝版淘公仔！</p>
+                          </div>
+                          <div class="show" id="guanbi">
+                               <img onclick=" hide()"src="guanbi.png" alt="">
+                          </div>
+                          <script>
+                                 var guanbi=document.getElementById('guanbi');
+                                 function hide() {
+                                  shouji_gudi.style.display='none';
+                                 }
+                          </script>
+                    </div>
+  
+                </div>
+          </div>
+
+          <script>
+                 /*function $(id) {
+                    return document.getElementById(id);
+                  }
+                  var lis=$('tabs1l').getElementsByTagName('li');
+                  var divs=$('con1l').getElementsByTagName('div');
+                  for(var i=0;i<lis.length;i++){
+                    lis[i].index=i;
+                    lis[i].onclick=function(){
+                      for(var i=0;i<lis.length;i++){
+                        lis[i].className='';
+                      }
+                      this.className='on';
+                      for(var i=0;i<divs.length;i++){
+                        divs[i].className='';
+                      }
+                      divs[this.index].className='show';
+                    }
+                  }*/
+          </script>
+    </div>
+</div>
+<div class="dqrd gwidth">
+      <ul class="dqrd_lz">
+           <li>端午粽子</li>
+           <li>新鲜土货</li>
+           <li>六一抢购</li>
+           <li>换季收纳</li>
+           <li>美白防晒</li>
+           <li>新品数码</li>
+      </ul>
+      <ul class="dqrd_lz1">
+           <li>端午粽子</li>
+           <li>新鲜土货</li>
+           <li>六一抢购</li>
+           <li>换季收纳</li>
+           <li>美白防晒</li>
+           <li>新品数码</li>
+      </ul>
+      <div class="hunda">
+           <img src="hunda.png" alt="">
+           <img src="dapei.png" alt="" class="dapei">
+           <img src="shejian.png" alt="">
+      </div>
+</div>
+<div class="zynr gwidth">
+        <div class="zynr_left">
+            <div class="zynr_da">
+                  <div class="nannv">
+                 <div class="nannv_top">
+                        <p>男女服饰</p>
+                        <ul class="huodong">
+                             <li>今日活动：</li>
+                             <li>色彩男装</li>
+                             <li>5折起包邮！</li>
+                        </ul>
+                 </div>
+                 <div class="shishang_nannv">
+                        <div class="fen">
+                            <img src="fen.png" alt="">
+                        </div>
+                        <div class="nannv_bottom">
+                                 <div class="baoli_mian">
+                                       <ul class="newnv">
+                                              <li>女装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                                  <div class="baoli_mian">
+                                       <ul class="newnv" style="border-bottom: none;">
+                                              <li>男装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                        </div>
+                 </div>
+                  </div>
+                  <div class="nannv">
+                 <div class="nannv_top">
+                        <p>鞋包备件</p>
+                        <ul class="huodong">
+                             <li>今日活动：</li>
+                             <li>色彩男装</li>
+                             <li>5折起包邮！</li>
+                        </ul>
+                 </div>
+                 <div class="shishang_nannv">
+                        <div class="fen">
+                            <img src="zi.png" alt="">
+                        </div>
+                        <div class="nannv_bottom">
+                                 <div class="baoli_mian">
+                                       <ul class="newnv">
+                                              <li>女装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                                  <div class="baoli_mian">
+                                       <ul class="newnv" style="border-bottom: none;">
+                                              <li>男装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                        </div>
+                 </div>
+                  </div>
+                  <div class="nannv" style="margin-top: 20px;">
+                 <div class="nannv_top">
+                        <p>鞋包备件</p>
+                        <ul class="huodong">
+                             <li>今日活动：</li>
+                             <li>色彩男装</li>
+                             <li>5折起包邮！</li>
+                        </ul>
+                 </div>
+                 <div class="shishang_nannv">
+                        <div class="fen">
+                            <img src="zi.png" alt="">
+                        </div>
+                        <div class="nannv_bottom">
+                                 <div class="baoli_mian">
+                                       <ul class="newnv">
+                                              <li>女装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                                  <div class="baoli_mian">
+                                       <ul class="newnv" style="border-bottom: none;">
+                                              <li>男装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                        </div>
+                 </div>
+                  </div>
+                  <div class="nannv" style="margin-top: 20px;">
+                 <div class="nannv_top">
+                        <p>男女服饰</p>
+                        <ul class="huodong">
+                             <li>今日活动：</li>
+                             <li>色彩男装</li>
+                             <li>5折起包邮！</li>
+                        </ul>
+                 </div>
+                 <div class="shishang_nannv">
+                        <div class="fen">
+                            <img src="fen.png" alt="">
+                        </div>
+                        <div class="nannv_bottom">
+                                 <div class="baoli_mian">
+                                       <ul class="newnv">
+                                              <li>女装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                                  <div class="baoli_mian">
+                                       <ul class="newnv" style="border-bottom: none;">
+                                              <li>男装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                        </div>
+                 </div>
+                  </div>
+                  <div class="renqi">
+                      <img src="renqidapaihang.png" alt="">
+                  </div>
+            </div>
+            <div class="zynr_da" style="padding-top: 20px;">
+                  <div class="nannv">
+                 <div class="nannv_top">
+                        <p>男女服饰</p>
+                        <ul class="huodong">
+                             <li>今日活动：</li>
+                             <li>色彩男装</li>
+                             <li>5折起包邮！</li>
+                        </ul>
+                 </div>
+                 <div class="shishang_nannv">
+                        <div class="fen">
+                            <img src="fen.png" alt="">
+                        </div>
+                        <div class="nannv_bottom">
+                                 <div class="baoli_mian">
+                                       <ul class="newnv">
+                                              <li>女装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                                  <div class="baoli_mian">
+                                       <ul class="newnv" style="border-bottom: none;">
+                                              <li>男装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                        </div>
+                 </div>
+                  </div>
+                  <div class="nannv">
+                 <div class="nannv_top">
+                        <p>鞋包备件</p>
+                        <ul class="huodong">
+                             <li>今日活动：</li>
+                             <li>色彩男装</li>
+                             <li>5折起包邮！</li>
+                        </ul>
+                 </div>
+                 <div class="shishang_nannv">
+                        <div class="fen">
+                            <img src="zi.png" alt="">
+                        </div>
+                        <div class="nannv_bottom">
+                                 <div class="baoli_mian">
+                                       <ul class="newnv">
+                                              <li>女装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                                  <div class="baoli_mian">
+                                       <ul class="newnv" style="border-bottom: none;">
+                                              <li>男装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                        </div>
+                 </div>
+                  </div>
+                  <div class="nannv" style="margin-top: 20px;">
+                 <div class="nannv_top">
+                        <p>鞋包备件</p>
+                        <ul class="huodong">
+                             <li>今日活动：</li>
+                             <li>色彩男装</li>
+                             <li>5折起包邮！</li>
+                        </ul>
+                 </div>
+                 <div class="shishang_nannv">
+                        <div class="fen">
+                            <img src="zi.png" alt="">
+                        </div>
+                        <div class="nannv_bottom">
+                                 <div class="baoli_mian">
+                                       <ul class="newnv">
+                                              <li>女装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                                  <div class="baoli_mian">
+                                       <ul class="newnv" style="border-bottom: none;">
+                                              <li>男装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                        </div>
+                 </div>
+                  </div>
+                  <div class="nannv" style="margin-top: 20px;">
+                 <div class="nannv_top">
+                        <p>男女服饰</p>
+                        <ul class="huodong">
+                             <li>今日活动：</li>
+                             <li>色彩男装</li>
+                             <li>5折起包邮！</li>
+                        </ul>
+                 </div>
+                 <div class="shishang_nannv">
+                        <div class="fen">
+                            <img src="fen.png" alt="">
+                        </div>
+                        <div class="nannv_bottom">
+                                 <div class="baoli_mian">
+                                       <ul class="newnv">
+                                              <li>女装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                                  <div class="baoli_mian">
+                                       <ul class="newnv" style="border-bottom: none;">
+                                              <li>男装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                        </div>
+                 </div>
+                  </div>
+                  <div class="renqi">
+                       <img src="liji.png" alt="">
+                  </div>
+            </div>
+             <div class="zynr_da" style="padding-top: 20px;">
+                  <div class="nannv">
+                 <div class="nannv_top">
+                        <p>男女服饰</p>
+                        <ul class="huodong">
+                             <li>今日活动：</li>
+                             <li>色彩男装</li>
+                             <li>5折起包邮！</li>
+                        </ul>
+                 </div>
+                 <div class="shishang_nannv">
+                        <div class="fen">
+                            <img src="fen.png" alt="">
+                        </div>
+                        <div class="nannv_bottom">
+                                 <div class="baoli_mian">
+                                       <ul class="newnv">
+                                              <li>女装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                                  <div class="baoli_mian">
+                                       <ul class="newnv" style="border-bottom: none;">
+                                              <li>男装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                        </div>
+                 </div>
+                  </div>
+                  <div class="nannv">
+                 <div class="nannv_top">
+                        <p>鞋包备件</p>
+                        <ul class="huodong">
+                             <li>今日活动：</li>
+                             <li>色彩男装</li>
+                             <li>5折起包邮！</li>
+                        </ul>
+                 </div>
+                 <div class="shishang_nannv">
+                        <div class="fen">
+                            <img src="zi.png" alt="">
+                        </div>
+                        <div class="nannv_bottom">
+                                 <div class="baoli_mian">
+                                       <ul class="newnv">
+                                              <li>女装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                                  <div class="baoli_mian">
+                                       <ul class="newnv" style="border-bottom: none;">
+                                              <li>男装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                        </div>
+                 </div>
+                  </div>
+                  <div class="nannv" style="margin-top: 20px;">
+                 <div class="nannv_top">
+                        <p>鞋包备件</p>
+                        <ul class="huodong">
+                             <li>今日活动：</li>
+                             <li>色彩男装</li>
+                             <li>5折起包邮！</li>
+                        </ul>
+                 </div>
+                 <div class="shishang_nannv">
+                        <div class="fen">
+                            <img src="zi.png" alt="">
+                        </div>
+                        <div class="nannv_bottom">
+                                 <div class="baoli_mian">
+                                       <ul class="newnv">
+                                              <li>女装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                                  <div class="baoli_mian">
+                                       <ul class="newnv" style="border-bottom: none;">
+                                              <li>男装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                        </div>
+                 </div>
+                  </div>
+                  <div class="nannv" style="margin-top: 20px;">
+                 <div class="nannv_top">
+                        <p>男女服饰</p>
+                        <ul class="huodong">
+                             <li>今日活动：</li>
+                             <li>色彩男装</li>
+                             <li>5折起包邮！</li>
+                        </ul>
+                 </div>
+                 <div class="shishang_nannv">
+                        <div class="fen">
+                            <img src="fen.png" alt="">
+                        </div>
+                        <div class="nannv_bottom">
+                                 <div class="baoli_mian">
+                                       <ul class="newnv">
+                                              <li>女装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                                  <div class="baoli_mian">
+                                       <ul class="newnv" style="border-bottom: none;">
+                                              <li>男装</li>
+                                              <li>衬衫</li>
+                                              <li>雪纺衫</li>
+                                              <li>防晒衣</li>
+                                              <li>小西装</li>
+                                              <li>运动套装</li>
+                                              <li>连衣裙</li>
+                                              <li>雪纺裙</li>
+                                              <li>长裙</li>
+                                              <li>短裙</li>
+                                              <li>蕾丝裙</li>
+                                              <li>女士内衣</li>
+                                              <li>T恤</li>
+                                              <li>打底衫</li>
+                                              <li>短袖T</li>
+                                              <li>蝙蝠袖</li>
+                                              <li>上衣</li>
+                                              <li>开衫</li>
+                                              <li>裤子</li>
+                                              <li>小脚裤</li>
+                                              <li>连体裤</li>
+                                              <li>短裤</li>
+                                              <li>七分裤</li>
+                                              <li>休闲裤</li>
+                                       </ul>
+                                 </div>
+                        </div>
+                 </div>
+                  </div>
+                  <div class="renqi">
+                       <img src="chuangyi.png" alt="">
+                  </div>
+            </div>
+        </div>
+        <div class="zynr_right">
+               <div class="haohuo">
+                    <p class="faxian">发现.好货</p>
+                    <div class="yk">
+                          <div class="sb">
+                                <img src="shubao.png" alt="">
+                                <div class="xx">
+                                     <p class="hanshi">淘宝双肩包男女韩</p>
+                                     <p class="kuaishi">“质量、款式很好，没有想象”</p>
+                                     <p class="shoucang">4732 收藏</p>
+                                </div>
+                          </div>
+                          <div class="sb">
+                                <img src="hailan.png" alt="" style="padding-left: 10px;">
+                                <div class="xx">
+                                     <p class="hanshi">海澜之家男装新夏</p>
+                                     <p class="kuaishi">“质量、款式很好，没有想象”</p>
+                                     <p class="shoucang">4732 收藏</p>
+                                </div>
+                          </div>
+                          <div class="sb">
+                                <img src="shubao.png" alt="">
+                                <div class="xx">
+                                     <p class="hanshi">淘宝双肩包男女韩</p>
+                                     <p class="kuaishi">“质量、款式很好，没有想象”</p>
+                                     <p class="shoucang">4732 收藏</p>
+                                </div>
+                          </div>
+                          <div class="sb">
+                                <img src="hailan.png" alt=""  style="padding-left: 10px;">
+                                <div class="xx">
+                                     <p class="hanshi">海澜之家男装新夏</p>
+                                     <p class="kuaishi">“质量、款式很好，没有想象”</p>
+                                     <p class="shoucang">4732 收藏</p>
+                                </div>
+                          </div>
+                    </div>
+                    <div class="ktu2">
+                         <ul class="jiugongge">
+                                <li><img src="shoujike.png" alt=""></li>
+                                <li><img src="shoujike.png" alt=""></li>
+                                <li><img src="shoujike.png" alt=""></li>
+                                <li><img src="shoujike.png" alt=""></li>
+                                <li><img src="shoujike.png" alt=""></li>
+                                <li><img src="shoujike.png" alt=""></li>
+                                <li><img src="shoujike.png" alt=""></li>
+                                <li><img src="shoujike.png" alt=""></li>
+                                <li><img src="shoujike.png" alt=""></li>
+                         </ul>
+                         <div  class="huanyipi">
+                                 <p class="huan_ss">换一批试试</p>
+                         </div>
+                    </div>
+               </div>
+               <div class="haodian">
+                     <p class="faxian">发现.好店</p>
+                     <div class="xiebao">
+                            <div class="zhuying">
+                                  <div class="zy_top">
+                                       <img src="diar.png" alt="">
+                                       <div class="wenzil">
+                                            <p>Didar</p>
+                                            <p>主营：服饰鞋包</p>
+                                       </div>
+                                  </div>
+                                  <ul class="maidou">
+                                     <li>可爱</li>
+                                     <li>麦兜</li>
+                                     <li>未来式</li>
+                                  </ul>
+                                  <ul class="haoduo_tu">
+                                        <li><img src="daigou.png" alt=""></li>
+                                        <li><img src="boy.png" alt=""></li>
+                                        <li><img src="tuzi.png" alt=""></li>
+                                  </ul>
+                            </div>
+                            <div class="zhuying" style="border-bottom: none;">
+                                  <div class="zy_top">
+                                       <img src="diar.png" alt="">
+                                       <div class="wenzil">
+                                            <p>Didar</p>
+                                            <p>主营：服饰鞋包</p>
+                                       </div>
+                                  </div>
+                                  <ul class="maidou">
+                                     <li>可爱</li>
+                                     <li>麦兜</li>
+                                     <li>未来式</li>
+                                  </ul>
+                                  <ul class="haoduo_tu">
+                                        <li><img src="daigou.png" alt=""></li>
+                                        <li><img src="boy.png" alt=""></li>
+                                        <li><img src="tuzi.png" alt=""></li>
+                                  </ul>
+                            </div>
+                            <div  class="huanyipi" style="margin-top: -20px;">
+                                 <p class="huan_ss" style="margin-left: 55px;">换一批试试</p>
+                            </div>
+                     </div>
+               </div>
+               <div class="huiju">
+                    <img src="huiqu.png" alt="">
+               </div>
+        </div>
+</div>
+<div class="mxkd gwidth">
+        <div class="mingxi">
+           <div class="xbao">
+              <p>星店<span>明星开店在这里</span></p>
+              <div class="sbt">
+                    <img src="shuangbaotai.png" alt="">
+                    <div class="zm">
+                         <p>栓胞胎团体受瞩目</p>
+                         <p>发行首张EP [恋爱过天]</p>
+                    </div>
+              </div>
+              <div class="touxiang">
+                   <div class="tx_top">
+                         <img src="zuorentou.png" alt="">
+                         <img src="yourentou.png" alt="">
+                   </div>
+                   <div class="renmng">
+                          <a>李涛力推</a>
+                          <a>辣妈曾凯旋</a>
+                          <ul class="lm">
+                                <li>耳机特卖</li>
+                                <li>小泽玛利亚</li>
+                                <li>潮流</li>
+                                <li>[明星同款]</li>
+                                <li>栗子姐夏季街拍</li>
+
+                          </ul>
+
+                   </div>
+              </div>
+           </div>
+        </div>
+        <div class="mingxi">
+           <div class="xbao">
+              <p>星店<span>明星开店在这里</span></p>
+              <div class="sbt">
+                    <img src="shuangbaotai.png" alt="">
+                    <div class="zm">
+                         <p>栓胞胎团体受瞩目</p>
+                         <p>发行首张EP [恋爱过天]</p>
+                    </div>
+              </div>
+              <div class="touxiang">
+                   <div class="tx_top">
+                         <img src="zuorentou.png" alt="">
+                         <img src="yourentou.png" alt="">
+                   </div>
+                   <div class="renmng">
+                          <a>李涛力推</a>
+                          <a>辣妈曾凯旋</a>
+                          <ul class="lm">
+                                <li>耳机特卖</li>
+                                <li>小泽玛利亚</li>
+                                <li>潮流</li>
+                                <li>[明星同款]</li>
+                                <li>栗子姐夏季街拍</li>
+
+                          </ul>
+
+                   </div>
+              </div>
+           </div>
+        </div>
+        <div class="mingxi">
+           <div class="xbao">
+              <p>星店<span>明星开店在这里</span></p>
+              <div class="sbt">
+                    <img src="shuangbaotai.png" alt="">
+                    <div class="zm">
+                         <p>栓胞胎团体受瞩目</p>
+                         <p>发行首张EP [恋爱过天]</p>
+                    </div>
+              </div>
+              <div class="touxiang">
+                   <div class="tx_top">
+                         <img src="zuorentou.png" alt="">
+                         <img src="yourentou.png" alt="">
+                   </div>
+                   <div class="renmng">
+                          <a>李涛力推</a>
+                          <a>辣妈曾凯旋</a>
+                          <ul class="lm">
+                                <li>耳机特卖</li>
+                                <li>小泽玛利亚</li>
+                                <li>潮流</li>
+                                <li>[明星同款]</li>
+                                <li>栗子姐夏季街拍</li>
+
+                          </ul>
+
+                   </div>
+              </div>
+           </div>
+        </div>
+        <div class="mingxi">
+           <div class="xbao">
+              <p>星店<span>明星开店在这里</span></p>
+              <div class="sbt">
+                    <img src="shuangbaotai.png" alt="">
+                    <div class="zm">
+                         <p>栓胞胎团体受瞩目</p>
+                         <p>发行首张EP [恋爱过天]</p>
+                    </div>
+              </div>
+              <div class="touxiang">
+                   <div class="tx_top">
+                         <img src="zuorentou.png" alt="">
+                         <img src="yourentou.png" alt="">
+                   </div>
+                   <div class="renmng">
+                          <a>李涛力推</a>
+                          <a>辣妈曾凯旋</a>
+                          <ul class="lm">
+                                <li>耳机特卖</li>
+                                <li>小泽玛利亚</li>
+                                <li>潮流</li>
+                                <li>[明星同款]</li>
+                                <li>栗子姐夏季街拍</li>
+
+                          </ul>
+
+                   </div>
+              </div>
+           </div>
+        </div>
+        <div class="mingxi">
+           <div class="xbao">
+              <p>星店<span>明星开店在这里</span></p>
+              <div class="sbt">
+                    <img src="shuangbaotai.png" alt="">
+                    <div class="zm">
+                         <p>栓胞胎团体受瞩目</p>
+                         <p>发行首张EP [恋爱过天]</p>
+                    </div>
+              </div>
+              <div class="touxiang">
+                   <div class="tx_top">
+                         <img src="zuorentou.png" alt="">
+                         <img src="yourentou.png" alt="">
+                   </div>
+                   <div class="renmng">
+                          <a>李涛力推</a>
+                          <a>辣妈曾凯旋</a>
+                          <ul class="lm">
+                                <li>耳机特卖</li>
+                                <li>小泽玛利亚</li>
+                                <li>潮流</li>
+                                <li>[明星同款]</li>
+                                <li>栗子姐夏季街拍</li>
+
+                          </ul>
+
+                   </div>
+              </div>
+           </div>
+        </div>
+        <div class="mingxi">
+           <div class="xbao">
+              <p>星店<span>明星开店在这里</span></p>
+              <div class="sbt">
+                    <img src="shuangbaotai.png" alt="">
+                    <div class="zm">
+                         <p>栓胞胎团体受瞩目</p>
+                         <p>发行首张EP [恋爱过天]</p>
+                    </div>
+              </div>
+              <div class="touxiang">
+                   <div class="tx_top">
+                         <img src="zuorentou.png" alt="">
+                         <img src="yourentou.png" alt="">
+                   </div>
+                   <div class="renmng">
+                          <a>李涛力推</a>
+                          <a>辣妈曾凯旋</a>
+                          <ul class="lm">
+                                <li>耳机特卖</li>
+                                <li>小泽玛利亚</li>
+                                <li>潮流</li>
+                                <li>[明星同款]</li>
+                                <li>栗子姐夏季街拍</li>
+
+                          </ul>
+
+                   </div>
+              </div>
+           </div>
+        </div>
+</div>
+<div class="rmdp gwidth">
+      <div class="rmdp_top">
+           <p>热卖单品</p>
+           <ul class="rmdp_nav">
+                <li>秋装 |</li>
+                <li>男夹克 |</li>
+                <li>运动服 |</li>
+                <li>运动装 |</li>
+                <li>运动裤 |</li>
+                <li>男卫衣 |</li>
+                <li>男上衣 |</li>
+                <li>产妇帽 |</li>
+                <li>男棉衣 |</li>
+                <li>棉马甲 |</li>
+                <li>运动服 |</li>
+                <li>运动装 |</li>
+                <li>运动裤 |</li>
+                <li>男卫衣 |</li>
+                <li>男上 |</li>
+                <li> 更多</li>
+           </ul>
+      </div>
+      <div class="rmdp_nr">
+           <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+           <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+            <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+            <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+            <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+            <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+            <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+           <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+           <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+           <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+           <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+           <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+           <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+           <div class="kaishi_la">
+                 <img src="pixue.png" alt="">
+                 <ul class="yueqian">
+                     <li>月销5968双 真皮短靴</li>
+                     <li style="color: #FF4300;">¥  298.00</li>
+                     <li>¥  558.00|  月销2424件</li>
+                 </ul>
+           </div>
+      </div>
+      <div class="xiaofeiz">
+           <div class="xfz_qx" style="border-left: none;">
+                <div class="niwojia">
+                    <p>消费者保障</p>
+                    <ul class="qx_b">
+                     <li>保障范围</li>
+                     <li>退货退款流程</li>
+                     <li>服务中心</li>
+                     <li>更多特色服</li>
+                    </ul>
+                </div>
+           </div>
+           <div class="xfz_qx">
+                <div class="niwojia">
+                    <p>消费者保障</p>
+                    <ul class="qx_b">
+                     <li>保障范围</li>
+                     <li>退货退款流程</li>
+                     <li>服务中心</li>
+                     <li>更多特色服</li>
+                    </ul>
+                </div>
+           </div>
+           <div class="xfz_qx">
+                <div class="niwojia">
+                    <p>消费者保障</p>
+                    <ul class="qx_b">
+                     <li>保障范围</li>
+                     <li>退货退款流程</li>
+                     <li>服务中心</li>
+                     <li>更多特色服</li>
+                    </ul>
+                </div>
+           </div>
+           <div class="xfz_qx">
+                <div class="niwojia">
+                    <p>消费者保障</p>
+                    <ul class="qx_b">
+                     <li>保障范围</li>
+                     <li>退货退款流程</li>
+                     <li>服务中心</li>
+                     <li>更多特色服</li>
+                    </ul>
+                </div>
+           </div>
+
+      </div>
+</div>
+<div class="dbxx gwidth">
+      <div class="dbxx_left">
+           <div class="zhegnti">
+               <ul class="dbxx_nav">
+                    <li>阿里巴巴集团 |</li>
+                    <li>阿里巴巴国际站 |</li>
+                    <li>阿里巴巴中国站 |</li>
+                    <li>全球速卖通 |</li>
+                    <li>淘宝网 |</li>
+                    <li>天猫 |</li>
+                    <li>聚划算 |</li>
+                    <li>一淘 |</li>
+                    <li>阿里妈妈 |</li>
+                    <li> 阿里云计算 |</li>
+                    <li>云OS  |</li>
+                    <li>万网 |</li>
+                    <li>支付宝</li>
+               </ul>
+           </div>
+           <ul class="youyici_l">
+                <li>关于淘宝</li>
+                <li>合作伙伴</li>
+                <li>营销中心</li>
+                <li>联系客服</li>
+                <li>开放平台</li>
+                <li>诚征英才</li>
+                <li>联系我们</li>
+                <li>网站地图</li>
+                <li>法律声明</li>
+                <li style="padding-left: 30px;">© 2013 Taobao.com 版权所有</li>
+           </ul>
+           <ul class="youyici_l1">
+                 <li>网络文化经营许可证： 文网文[2010]040号   |  增值电信业务经营许可证：浙B2-20080224-1 |  信息网络传播视听节目许可证：1109364号
+                 </li>
+           </ul>
+           <ul class="db_tu">
+                <li><img src="lunfan.png" alt=""></li>
+                <li><img src="jinghui.png" alt=""></li>
+                <li><img src="3.png" alt=""></li>
+                <li><img src="4.png" alt=""></li>
+                <li><img src="5.png" alt=""></li>
+                <li><img src="6.png" alt=""></li>
+           </ul>
+      </div>
+      <div class="dbxx_right">
+           <img src="xiaoren.png" alt="">
+      </div>
+</div>
+
+	
+</body>
+</html>
