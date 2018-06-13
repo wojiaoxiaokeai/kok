@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无极软件后台管理系统</title>
+	 <meta id="viewport" name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="css/wuji.css">
+    <link rel="stylesheet" href="font/iconfont.css">
+    <link rel="stylesheet" href="../dist/css/swiper.min.css">
+    
+   <script>
+    window.onload = window.onresize = function(){		 
+        var view_width = document.getElementsByTagName('html')[0].getBoundingClientRect().width;
+		//找到标签名为html的第一个
+        var _html = document.getElementsByTagName('html')[0];
+		//如果屏幕宽度大于640 
+		//就用 640/16=40
+		//小于640的时候 不确定 也是尺寸/40
+        view_width>640?_html.style.fontSize = 640 / 16 + 'px':_html.style.fontSize = view_width / 16 + 'px';
+		//最大网页尺寸640 
+		//最大字体（根字体大小） 40
+    }
+</script>
+</head>
+<body>
+<div class="swiper-container">
+   <div class="swiper-wrapper">
+      <div class="ruanjian_shichang" id="swiper-slide">
+	          <header>
+                 <p class="fl"><span class="iconfont">&#xe608;</span>返回</p>
+                 <a>无极软件后台管理系统</a>
+                 <p class="iconfont fr" style="font-size: 22px;">&#xe631;</p>
+            </header>
+	          <div class="bt">
+		          <p><span class="iconfont fl">&#xe608;</span>软件市场</p>
+	          </div>
+	          <div class="yjds">
+	             <div class="yjds_l">
+                     <a>硬件大师</a>
+                     <ul class="bg">
+                        <li class="tu">
+                              <img src="img/g.png" alt="">
+                        </li>
+                        <li class="ds">
+                               <p>硬件大师</p>
+                        </li>
+                        <li class="kk">
+                                <p ><span class="iconfont">&#xe607;</span>我要开卡</p>
+                         </li>
+                        <li class="km">
+                                <p><span class="iconfont">&#xe638;</span>已开卡密</p>
+                        </li>
+                     </ul>
+               </div>
+               <div class="yjds_ll">
+                      <a>无极</a>
+                      <div class="lv">
+           	                  <div class="lv_left fl">
+                                   <img src="img/lv.png" alt="">
+                               </div>
+                               <div class="lv_right fl">
+                                     <ul class="lv_top">
+                                            <li  class="pt" style="border-bottom: none;">
+                                            <p>普通版专业</p>
+                                            </li>
+                                            <li class="kk1" style="border-bottom: none;">
+                                                   <p><span class="iconfont">&#xe607;</span>我要开卡</p>
+                                             </li>
+                                             <li class="km1" style="border-bottom: none;">
+                                                    <p><span class="iconfont">&#xe638;</span>已开卡密</p>
+                                             </li>
+                                     </ul>
+                                      <ul class="lv_top">
+                                             <li  class="pt">
+                                                  <p>普通版专业</p>
+                                             </li>
+                                             <li class="kk1">
+                                                  <p><span class="iconfont">&#xe607;</span>我要开卡</p>
+                                             </li>
+                                             <li class="km1">
+                                                  <p><span class="iconfont">&#xe638;</span>已开卡密</p>
+                                             </li>
+                                      </ul>
+                                </div>
+                       </div>
+               </div>
+               <div class="yjds_ll">
+                         <a>无极</a>
+                         <div class="lv">
+                         	     <div class="lv_left fl">
+                                       <img src="img/guajibao.png" alt="">
+                               </div>
+                               <div class="lv_right fl">
+                                    <ul class="lv_top">
+                                           <li  class="pt" style="border-bottom: none;">
+                                                <p>普通版专业</p>
+                                           </li>
+                                           <li class="kk1" style="border-bottom: none;">
+                                                <p><span class="iconfont">&#xe607;</span>我要开卡</p>
+                                           </li>
+                                           <li class="km1" style="border-bottom: none;">
+                                                <p><span class="iconfont">&#xe638;</span>已开卡密</p>
+                                           </li>
+                                    </ul>
+                                    <ul class="lv_top">
+                                           <li  class="pt">
+                                                <p>普通版专业</p>
+                                           </li>
+                                           <li class="kk1">
+                                                <p><span class="iconfont">&#xe607;</span>我要开卡</p>
+                                           </li>
+                                           <li class="km1">
+                                                <p><span class="iconfont">&#xe638;</span>已开卡密</p>
+                                           </li>
+                                    </ul>
+
+                               </div>
+                         </div>
+               </div>
+               <div class="yjds_l">
+                       <a>硬件大师</a>
+                       <ul class="bg">
+                            <li class="tu">
+                                   <img src="img/bianjibao.png" alt="">
+                            </li>
+                            <li class="ds">
+                                   <p>硬件大师</p>
+                            </li>
+                            <li class="kk">
+                                   <p><span class="iconfont">&#xe607;</span>我要开卡</p>
+                            </li>
+                            <li class="km">
+                                   <p><span class="iconfont">&#xe638;</span>已开卡密</p>
+                            </li>
+                       </ul>
+               </div>
+            </div>
+            <div class="footer">
+                  <ul class="clearfix" id="footer">
+                      <li class="fl" id="li">
+              	           <p class="fl"><span class="iconfont">&#xe60f;</span>我的</p>
+                           <dl id="dl">
+                                <dd>
+                                     <p><span class="iconfont">&#xe60f;</span>账户</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe615;</span>充值</p>
+                                <dd>
+                                     <p><span class="iconfont">&#xe618;</span>流水</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe603;</span>密码</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe72c;</span>注销</p>
+                                </dd>
+
+                           </dl>
+                      </li>
+                      <li class="fl" style="margin-left: 1.985rem;margin-top: -6px;">
+              	             <p><span class="iconfont">&#xe607;</span>开卡</p>
+                      </li>
+                      <li class="fr">
+              	             <p class="fr"><span class="iconfont">&#xe649;</span>订单</p>
+                      </li>
+                  </ul>
+            </div>
+      </div>
+      <div class="huanying_ye" id="swiper-slide">
+           <header>
+               <p class="fl fan"><span class="iconfont fj">&#xe608;</span>返回</p>
+               <a class="zhong">无极软件后台管理系统</a>
+               <p class="fr"><span class="iconfont deng">&#xe631;</span></p>
+           </header>
+           <div class="zx">
+                   <p><span class="iconfont fl fanj">&#xe608;</span>欢迎页</p>
+           </div>
+           <ul class="dlzh">
+                 <li>
+                     <a class="fl">登录账号</a>
+                     <p class="fr">qq@7DBF778A79D4912499156152561</p>
+                 </li>
+                 <li>
+                     <a class="fl">账户余额</a>
+                     <p class="fl ling">0<span class="cz">充值</span><i class="qian">1元&nbsp=&nbsp100点</i></p>
+                    
+                 </li>
+                 <li>
+                     <a class="fl">用户等级</a>
+                     <p class="fr hy">普通会员</p>
+                 </li>
+                 <li>
+                      <a class="fl">手机号</a>
+                     <p class="fr zhmm"><span class="bd">绑定</span>(绑定用于找回密码)</p>
+
+                 </li>
+           </ul>
+           <div class="footer">
+                  <ul class="clearfix" id="footer">
+                      <li class="fl" id="li">
+                           <p class="fl"><span class="iconfont">&#xe60f;</span>我的</p>
+                           <dl id="dl">
+                                <dd>
+                                     <p><span class="iconfont">&#xe60f;</span>账户</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe615;</span>充值</p>
+                                <dd>
+                                     <p><span class="iconfont">&#xe618;</span>流水</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe603;</span>密码</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe72c;</span>注销</p>
+                                </dd>
+
+                           </dl>
+                      </li>
+                      <li class="fl" style="margin-left: 1.985rem;margin-top: -6px;">
+                             <p><span class="iconfont">&#xe607;</span>开卡</p>
+                      </li>
+                      <li class="fr">
+                             <p class="fr"><span class="iconfont">&#xe649;</span>订单</p>
+                      </li>
+                  </ul>
+            </div>
+      </div>
+      <div class="zaixian_cz" id="swiper-slide">
+           <header>
+               <p class="fl fan"><span class="iconfont fj">&#xe608;</span>返回</p>
+               <a class="zhong">无极软件后台管理系统</a>
+               <p class="fr"><span class="iconfont deng">&#xe631;</span></p>
+           </header>
+           <div class="zx">
+                   <p><span class="iconfont fl fanj">&#xe608;</span>在线充值</p>
+           </div>
+           <div class="zx_cz">
+                <p class="jine">充值金额<span class="qian">1元&nbsp=&nbsp100点</span>,至少充值<i class="ten">10元</i></p>
+                <p class="shi">10</p>
+                <input type="button" value="确定">
+                 <div class="footer">
+                  <ul class="clearfix" id="footer">
+                      <li class="fl" id="li">
+                           <p class="fl"><span class="iconfont">&#xe60f;</span>我的</p>
+                           <dl id="dl">
+                                <dd>
+                                     <p><span class="iconfont">&#xe60f;</span>账户</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe615;</span>充值</p>
+                                <dd>
+                                     <p><span class="iconfont">&#xe618;</span>流水</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe603;</span>密码</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe72c;</span>注销</p>
+                                </dd>
+
+                           </dl>
+                      </li>
+                      <li class="fl" style="margin-left: 1.985rem;margin-top: -6px;">
+                             <p><span class="iconfont">&#xe607;</span>开卡</p>
+                      </li>
+                      <li class="fr">
+                             <p class="fr"><span class="iconfont">&#xe649;</span>订单</p>
+                      </li>
+                  </ul>
+            </div>
+           </div>
+      </div>
+      <div class="xiugai_mm" id="swiper-slide">
+            <header>
+               <p class="fl fan"><span class="iconfont fj">&#xe608;</span>返回</p>
+               <a class="zhong">无极软件后台管理系统</a>
+               <p class="fr"><span class="iconfont deng">&#xe631;</span></p>
+           </header>
+           <div class="zx">
+                   <p><span class="iconfont fl fanj">&#xe608;</span>修改密码</p>
+           </div>
+           <div class="xgmm">
+                <p>当前密码</p>
+                <input type="text" placeholder="请输入您的当前输入密码">
+                <p>新密码</p>
+                <input type="text" placeholder="请输入您的当前输入密码">
+                <p>确认密码</p>
+                <input type="text" placeholder="请输入您的当前输入密码">
+                <a class="fr">确认修改</a>
+           </div>
+            <div class="footer">
+                  <ul class="clearfix" id="footer">
+                      <li class="fl" id="li">
+                           <p class="fl"><span class="iconfont">&#xe60f;</span>我的</p>
+                           <dl id="dl">
+                                <dd>
+                                     <p><span class="iconfont">&#xe60f;</span>账户</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe615;</span>充值</p>
+                                <dd>
+                                     <p><span class="iconfont">&#xe618;</span>流水</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe603;</span>密码</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe72c;</span>注销</p>
+                                </dd>
+
+                           </dl>
+                      </li>
+                      <li class="fl" style="margin-left: 1.985rem;margin-top: -6px;">
+                             <p><span class="iconfont">&#xe607;</span>开卡</p>
+                      </li>
+                      <li class="fr">
+                             <p class="fr"><span class="iconfont">&#xe649;</span>订单</p>
+                      </li>
+                  </ul>
+            </div>
+      </div>
+      <div class="dingdan_lb" id="swiper-slide">
+          <header>
+               <p class="fl fan"><span class="iconfont fj">&#xe608;</span>返回</p>
+               <a class="zhong">无极软件后台管理系统</a>
+               <p class="fr"><span class="iconfont deng">&#xe631;</span></p>
+           </header>
+           <div class="zx">
+                   <p class="fl"><span class="iconfont fl fanj" style="padding-right: 1.875rem;">&#xe608;</span>订单列表</p>
+                   <ul class="clearfix">
+                        <li id="li1"><a href="" class="iconfont fr quan">&#xe64f;</a>
+                              <dl id="dl1">
+                                  <dd>全部记录</dd>
+                                  <dd>待开卡</dd>
+                                  <dd>已开卡</dd>
+                                  <dd>已取消</dd>
+                              </dl>
+      
+                        </li>
+                   </ul>
+           </div> 
+           <ul class="ri_qi">
+                <li>
+                     <p class="fl hy_zh">会员账号<span class="iconfont pan">&#xe635;</span></p>
+                     <p class="fl gjz">请输入关键字</p>
+
+                </li>
+                <li style="border-top:none;">
+                    <p class="fl">硬件大师</p>
+                    <span class="iconfont fr">&#xe635;</span>
+                </li>
+                <li style="border-top:none;">
+                     <p>开始日期</p>
+                </li>
+                <li style="border-top:none;">
+                      <p>结束日期</p>
+                </li>
+           </ul>
+              <a class="sousu">搜索</a>
+               <div class="footer">
+                  <ul class="clearfix" id="footer">
+                      <li class="fl" id="li">
+                           <p class="fl"><span class="iconfont">&#xe60f;</span>我的</p>
+                           <dl id="dl">
+                                <dd>
+                                     <p><span class="iconfont">&#xe60f;</span>账户</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe615;</span>充值</p>
+                                <dd>
+                                     <p><span class="iconfont">&#xe618;</span>流水</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe603;</span>密码</p>
+                                </dd>
+                                <dd>
+                                     <p><span class="iconfont">&#xe72c;</span>注销</p>
+                                </dd>
+
+                           </dl>
+                      </li>
+                      <li class="fl" style="margin-left: 1.985rem;margin-top: -6px;">
+                             <p><span class="iconfont">&#xe607;</span>开卡</p>
+                      </li>
+                      <li class="fr">
+                             <p class="fr"><span class="iconfont">&#xe649;</span>订单</p>
+                      </li>
+                  </ul>
+              </</div>
+      </div>
+   </div>
+</div>
+<script src="../dist/js/swiper.min.js"></script>
+<script>
+    var oli = document.getElementById('li');
+    var odl = document.getElementById('dl');
+    
+    oli.onclick = function() {
+      if(odl.style.display == 'block'){
+        odl.style.display = 'none'
+      }
+      else{
+        odl.style.display = 'block'
+      }
+    }
+</script>
+<script>
+    var oli1 = document.getElementById('li1');
+    var odl1 = document.getElementById('dl1');
+    
+    oli1.onclick = function() {
+      if(odl1.style.display == 'block'){
+        odl1.style.display = 'none'
+      }
+      else{
+        odl1.style.display = 'block'
+      }
+    }
+</script>
+ <script>
+    var swiper = new Swiper('.swiper-container');
+  </script>
+</body>
+</html>
