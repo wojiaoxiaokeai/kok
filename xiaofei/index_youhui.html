@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>优惠卡消费记录</title>
+	<link rel="stylesheet" type="text/css" href="css/gg.css">
+	<link rel="stylesheet" type="text/css" href="css/style_youhui.css">
+	<meta id="viewport" name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=0">
+    <script>
+    	window.onload = window.onresize = function(){		 
+        var view_width = document.getElementsByTagName('html')[0].getBoundingClientRect().width;
+		//找到标签名为html的第一个
+        var _html = document.getElementsByTagName('html')[0];
+		//如果屏幕宽度大于640 
+		//就用 640/16=40
+		//小于640的时候 不确定 也是尺寸/40
+        view_width>640?_html.style.fontSize = 640 / 16 + 'px':_html.style.fontSize = view_width / 16 + 'px';
+		//最大网页尺寸640 
+		//最大字体（根字体大小） 40
+    }
+</script>
+</head>
+<body>
+	<header>
+		<div class="tx fl">
+			<img src="img/touxiang.png" alt="">
+		</div>
+		<h4 class="title fl">某某店铺</h4>
+	</header>
+	<div class="record">
+		<div class="ch fl">
+			<img src="img/003.png" alt="">
+		</div>
+		<h5 class=" title2 fl">优惠卡消费记录</h5>
+	</div>
+	<table border="1">
+		<tr>
+            <th class="yh">使用用户</th>
+            <th class="mc">卡名称</th>
+            <th class="sj">时间</th>
+		</tr>
+		<tr>
+			<td class="yh2">可奇</td>
+			<td class="dp">王婷店铺</td>
+			<td class="sj2">2018-06-04&nbsp17</td>
+		</tr>
+		<tr>
+			<td class="yh2">可奇</td>
+			<td class="dp">王婷店铺</td>
+			<td class="sj2">2018-06-04&nbsp17</td>
+		</tr>
+		<tr>
+			<td class="yh2">可奇</td>
+			<td class="dp">王婷店铺</td>
+			<td class="sj2">2018-06-04&nbsp17</td>
+		</tr>
+		<tr>
+			<td class="yh2">可奇</td>
+			<td class="dp">王婷店铺</td>
+			<td class="sj2">2018-06-04&nbsp17</td>
+		</tr>
+		<tr>
+			<td class="yh2">可奇</td>
+			<td class="dp">王婷店铺</td>
+			<td class="sj2">2018-06-04&nbsp17</td>
+		</tr>
+		<tr>
+			<td class="yh2">可奇</td>
+			<td class="dp">王婷店铺</td>
+			<td class="sj2">2018-06-04&nbsp17</td>
+		</tr>
+		<tr>
+			<td class="yh2">可奇</td>
+			<td class="dp">王婷店铺</td>
+			<td class="sj2">2018-06-04&nbsp17</td>
+		</tr>
+		<tr>
+			<td class="yh2">可奇</td>
+			<td class="dp">王婷店铺</td>
+			<td class="sj2">2018-06-04&nbsp17</td>
+		</tr>
+		<tr>
+			<td class="yh2">可奇</td>
+			<td class="dp">王婷店铺</td>
+			<td class="sj2">2018-06-04&nbsp17</td>
+		</tr>
+		<tr>
+			<td class="yh2">可奇</td>
+			<td class="dp">王婷店铺</td>
+			<td class="sj2">2018-06-04&nbsp17</td>
+		</tr>
+
+	</table>
+	<div class="footer">
+		<a href="" class="sy">首页</a>
+		<a href="index.html" class="top">上一页</a>
+		<a href="index.html" class="one">1</a>
+		<a href="index_youhui.html" class="two">2</a>
+		<a href="index.html" class="bottom">下一页</a>
+		<a href="index_youhui.html">末页</a>
+		<div class="lj">
+			<img src="img/lj.png" alt="">
+		</div>
+	</div>
+</body>
+</html>
